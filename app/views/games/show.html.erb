@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Game #<%= @the_game.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/games">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_game/<%= @the_game.id %>">
+          Delete game
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Game bank
+      </dt>
+      <dd>
+        <%= @the_game.game_bank %>
+      </dd>
+
+      <dt>
+        Big blind
+      </dt>
+      <dd>
+        <%= @the_game.big_blind %>
+      </dd>
+
+      <dt>
+        Small blind
+      </dt>
+      <dd>
+        <%= @the_game.small_blind %>
+      </dd>
+
+      <dt>
+        Game owner
+      </dt>
+      <dd>
+        <%= @the_game.game_owner %>
+      </dd>
+
+      <dt>
+        Game name
+      </dt>
+      <dd>
+        <%= @the_game.game_name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_game.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_game.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit game
+    </h2>
+
+    <form action="/modify_game/<%= @the_game.id %>"  method="post" >
+      <div>
+        <label for="game_bank_box">
+          Game bank
+        </label>
+
+        <input type="text" id="game_bank_box" name="query_game_bank" value="<%= @the_game.game_bank %>">
+      </div>
+
+      <div>
+        <label for="big_blind_box">
+          Big blind
+        </label>
+
+        <input type="text" id="big_blind_box" name="query_big_blind" value="<%= @the_game.big_blind %>">
+      </div>
+
+      <div>
+        <label for="small_blind_box">
+          Small blind
+        </label>
+
+        <input type="text" id="small_blind_box" name="query_small_blind" value="<%= @the_game.small_blind %>">
+      </div>
+
+      <div>
+        <label for="game_owner_box">
+          Game owner
+        </label>
+
+        <input type="text" id="game_owner_box" name="query_game_owner" value="<%= @the_game.game_owner %>">
+      </div>
+
+      <div>
+        <label for="game_name_box">
+          Game name
+        </label>
+
+        <input type="text" id="game_name_box" name="query_game_name" value="<%= @the_game.game_name %>">
+      </div>
+
+      <button>
+        Update game
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
