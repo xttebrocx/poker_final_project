@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all seats
+      Join a game
     </h1>
   </div>
 </div>
@@ -16,11 +16,11 @@
 
     <form action="/insert_seat" method="post">
       <div>
-        <label for="user_id_box">
+        <label type="hidden" for="user_id_box">
           User
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type="hidden" value=<%session.fetch(:user_id)%> id="user_id_box" name="query_user_id">
       </div>
 
       <div>
@@ -35,67 +35,6 @@
         Create seat
       </button>
     </form>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Game
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_seats.each do |a_seat| %>
-      <tr>
-        <td>
-          <%= a_seat.id %>
-        </td>
-
-        <td>
-          <%= a_seat.user_id %>
-        </td>
-
-        <td>
-          <%= a_seat.game_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_seat.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_seat.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/seats/<%= a_seat.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
   </div>
 </div>
 

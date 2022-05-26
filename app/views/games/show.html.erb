@@ -73,7 +73,8 @@
 
 <hr>
 
-
+<%# EDIT GAME IF GAME OWNER, if Game.fetch(owner_id)==session.fetch(:user_id%>
+<%# LEAVE GAME IF GAME MEMBER, if session.fetch(:user_id)==%>
 <div>
   <div>
     <h2>
@@ -129,3 +130,18 @@
 </div>
 
 <hr>
+
+<h1> Players </h1>
+
+<table border="1">
+<tr> 
+<th> Player 1 </th>
+</tr>
+
+<% @matching_seats.each do |t|%>
+<tr>
+<td>
+<%=t.user_id%>
+</td>
+</tr>
+<%end%>

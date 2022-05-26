@@ -5,6 +5,9 @@
     </h1>
   </div>
 </div>
+<hr>
+<h2> Join a game </h2>
+<p> Click "join game" on list below or <a href="/seats"> click here </a> if you know your game id.
 
 <hr>
 
@@ -40,11 +43,11 @@
       </div>
 
       <div>
-        <label for="game_owner_box">
-          Game owner
+        <label for="game_owner_box" value=<%session.fetch(:user_id)%>>
+          
         </label>
 
-        <input type="text" id="game_owner_box" name="query_game_owner">
+        <input type="hidden" value=<%session.fetch(:user_id)%> id="game_owner_box" name="query_game_owner">
       </div>
 
       <div>
@@ -71,9 +74,7 @@
           ID
         </th>
 
-        <th>
-          Game bank
-        </th>
+        
 
         <th>
           Big blind
@@ -100,44 +101,40 @@
         </th>
 
         <th>
+        Show details
         </th>
       </tr>
 
-      <% @list_of_games.each do |a_game| %>
+      <% @list_of_games.each do |t| %>
       <tr>
         <td>
-          <%= a_game.id %>
+        <%=t.id%>
+        </td>
+        
+        
+        <td>
+        <%=t.big_blind%>
+        </td>
+        <td>
+        <%=t.small_blind%>
         </td>
 
         <td>
-          <%= a_game.game_bank %>
+        <%=t.game_owner%>
         </td>
 
         <td>
-          <%= a_game.big_blind %>
+        <%=t.game_name%>
+        </td>
+        <td>
+        <%= time_ago_in_words(t.created_at)%> ago
         </td>
 
         <td>
-          <%= a_game.small_blind %>
-        </td>
-
-        <td>
-          <%= a_game.game_owner %>
-        </td>
-
-        <td>
-          <%= a_game.game_name %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_game.created_at) %> ago
+        <%=time_ago_in_words(t.updated_at)%> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_game.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/games/<%= a_game.id %>">
+          <a href="/games/<%= t.id %>">
             Show details
           </a>
         </td>

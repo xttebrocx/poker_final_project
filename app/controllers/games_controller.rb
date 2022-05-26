@@ -14,6 +14,8 @@ class GamesController < ApplicationController
 
     @the_game = matching_games.at(0)
 
+    @matching_seats = Seat.where(:game_id=>@the_game).order(:created_at=>:desc)
+
     render({ :template => "games/show.html.erb" })
   end
 

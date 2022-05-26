@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+  def index
+    redirect_to("/games")
+  end
+  
+  
+  
   before_action(:load_current_user)
   
   # Uncomment line 5 in this file and line 3 in UserAuthenticationController if you want to force users to sign in before any other actions.
