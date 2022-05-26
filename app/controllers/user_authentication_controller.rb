@@ -41,8 +41,6 @@ class UserAuthenticationController < ApplicationController
     @user.email = params.fetch("query_email")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
-    @user.current_game = params.fetch("query_current_game")
-    @user.user_bank = params.fetch("query_user_bank")
 
     save_status = @user.save
 
@@ -64,8 +62,6 @@ class UserAuthenticationController < ApplicationController
     @user.email = params.fetch("query_email")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
-    @user.current_game = params.fetch("query_current_game")
-    @user.user_bank = params.fetch("query_user_bank")
     
     if @user.valid?
       @user.save
